@@ -1,53 +1,39 @@
-window.onload = function() {
-   onReady();
- };
-
 function onReady() {
-    const addToDoForm = document.getElementById('addToDoForm');
+  const toDos = [];
+  const addToDoForm = document.getElementById('addToDoForm');
+
+  function createNewToDo() {
     const newToDoText = document.getElementById('newToDoText');
+    if (!newToDoText.value) { return; }
+    toDos.push({
+      title: newToDoText.value,
+      complete: false
+    });
+    newToDoText.value = '';
+    renderTheUI();
+  }
+
+
+  function renderTheUI() {
     const toDoList = document.getElementById('toDoList');
 
-    addToDoForm.addEventListener('submit', () => {
+    toDoList.textContent = '';
+    toDos.forEach(function(toDo) {
+      const newLi = document.createElement('li');
+      const checkbox = document.createElement('input');
+      checkbox.type = "checkbox";
+      newLi.textContent = toDo.title;
+      toDoList.appendChild(newLi);
+      newLi.appendChild(checkbox);
+   });
+  }
+  addToDoForm.addEventListener('submit', event => {
     event.preventDefault();
-
-    // get text
-    let title = newToDoText.value;
-
-    // create new li
-    let newLi = document.createElement('li');
-
-    // create new input
-    let checkbox = document.createElement('input');
-
-    // set input's type to checkbox
-    checkbox.type = "checkbox";
-
-    // set title
-    newLi.textContent = title;
-
-    // attach checkbox to li
-    newLi.appendChild(checkbox);
-
-    // attach li to ul
-    toDoList.appendChild(newLi);
-
-    // empty input
-    newToDoText.value = '';
-
-    // create dekete button
-    let deleteBtn = document.createElement('button');
-
-    // set button text
-    deleteBtn.textContent = "Delete";
-
-    // attach delete button to li
-    newLi.appendChild(deleteBtn);
-    deleteBtn.addEventListener('click', function(event){
-    toDoList.removeChild(this.parentElement);
-    });
+    createNewToDo();
   });
- }
+  renderTheUI();
+}
 
-// window.onload = function() {
-//   onReady();
-//  };
+window.onload = function() {
+  onReady();
+};
