@@ -1,0 +1,39 @@
+*, *:before, *:after {
+box-sizing: border-box;
+}
+
+body {
+  background-color: #eceef8;
+  font: 16px;
+  margin: 0 auto;
+  padding-bottom: 5rem;
+  width: 85%;
+}
+
+header {
+  color: #eceef8;
+  justify-content: center;
+  text-align: center;
+ }
+
+ h1 {
+   color: #eceef8;
+   font-weight: bold;
+ }
+
+ form {
+   display: flex;
+ }
+
+input {
+  background: none;
+  border: none;
+  border-bottom: black solid .1rem;
+  width: 70%;
+}
+
+@media screen and (max-width: 1024px) {
+     header.mdl-layout__header {
+       display: flex;
+     }
+   }
