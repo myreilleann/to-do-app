@@ -45,10 +45,11 @@ function onReady() {
     createNewToDo();
   });
   renderTheUI();
-}
+});
 };
 
 
 window.onload = function() {
   onReady();
+};
 };
