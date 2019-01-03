@@ -1,7 +1,3 @@
-window.onload = function() {
-   onReady();
- };
-
 function onReady() {
     const addToDoForm = document.getElementById('addToDoForm');
     const newToDoText = document.getElementById('newToDoText');
@@ -48,6 +44,6 @@ function onReady() {
   });
  }
 
-// window.onload = function() {
-//   onReady();
-//  };
+window.onload = function() {
+  onReady();
+ };
