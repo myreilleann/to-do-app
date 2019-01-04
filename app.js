@@ -17,6 +17,7 @@ function onReady() {
       toDoList.appendChild(newLi);
       newLi.appendChild(checkbox);
     });
+  
 
       const deleteBtn = document.createElement('button');
       deleteBtn.textContent = "Delete";
@@ -27,6 +28,7 @@ function onReady() {
       newLi.appendChild(deleteBtn);
     });
   });
+}
 
 
   function createNewToDo() {
@@ -50,7 +52,6 @@ function onReady() {
   });
   renderTheUI();
   }
-}
 
 
 window.onload = function() {
